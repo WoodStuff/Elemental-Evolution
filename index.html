@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Elemental Evolution</title>
+
+		<script src="js/classes/Timer.js"></script>
+
+		<script src="js/script.js"></script>
+
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/text.css">
+		<link rel="stylesheet" href="css/button.css">
+	</head>
+
+	<body onload="start();">
+		<div id="hydrogen">
+			<p id="hydrogen-label" class="big">You have <span id="hydrogen-value">0</span> hydrogen</p>
+			<button id="hydrogen-button" class="xwide tall big" onclick="get();">
+				<span id="hydrogen-button-text">Gather</span>
+				<div id="hydrogen-progress"></div>
+			</button>
+		</div>
+	</body>
+</html>

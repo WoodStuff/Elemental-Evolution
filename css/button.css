@@ -1,0 +1,26 @@
+/* regular button settings */
+button {
+	position: relative;
+
+	background-color: #eeeeee;
+	color: #222222;
+	border: 2px solid #888888;
+	border-radius: 4px;
+}
+button:hover  { background-color: #f6f6f6; }
+button:active { background-color: #e2e2e2; }
+button:disabled { background-color: #d0d0d0; }
+
+/* class modifiers */
+button.short  { width: 100px;  }
+button.swide  { width: 175px;  }
+button.wide   { width: 200px;  }
+button.xwide  { width: 250px;  }
+button.xxwide { width: 300px;  }
+button.low    { height: 75px;  }
+button.stall  { height: 125px; }
+button.tall   { height: 150px; }
+button.xtall  { height: 200px; }
+button.xxtall { height: 250px; }
+button.small { font-size: 0.67em; }
+button.big   { font-size: 1.33em; }

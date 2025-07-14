@@ -1,0 +1,31 @@
+* {
+	box-sizing: border-box;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	transition: 0.04s;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+div#hydrogen {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+div#hydrogen-progress {
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.2);
+	width: 0%;
+	height: 100%;
+	left: 0;
+	top: 0;
+}

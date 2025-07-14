@@ -1,0 +1,8 @@
+/* regular text settings */
+body {
+	font-size: 1.5em;
+}
+
+/* class modifiers */
+p.small { font-size: 0.67em; }
+p.big { font-size: 1.33em; }
