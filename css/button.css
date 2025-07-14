@@ -1,6 +1,8 @@
 /* regular button settings */
 button {
 	position: relative;
+	width: 150px;
+	height: 100px;
 
 	background-color: #eeeeee;
 	color: #222222;
