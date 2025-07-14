@@ -15,13 +15,13 @@ body {
 	align-items: center;
 }
 
-div#hydrogen {
+div.tab {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-div#hydrogen-progress {
+div.progress {
 	position: absolute;
 	background-color: rgba(0, 0, 0, 0.2);
 	width: 0%;
