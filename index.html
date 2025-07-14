@@ -6,6 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Elemental Evolution</title>
 
+		<script src="js/utils.js"></script>
+
 		<script src="js/classes/Timer.js"></script>
 
 		<script src="js/script.js"></script>
@@ -18,7 +20,7 @@
 	<body onload="start();">
 		<div id="hydrogen" class="tab">
 			<p id="hydrogen-label" class="big">You have <span id="hydrogen-value">0</span> hydrogen</p>
-			<button id="hydrogen-button" class="xwide tall big" onclick="get();">
+			<button id="hydrogen-button" class="xwide tall big">
 				<span id="hydrogen-button-text">Gather</span>
 				<div id="hydrogen-progress" class="progress"></div>
 			</button>

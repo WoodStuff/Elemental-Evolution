@@ -14,9 +14,11 @@ const HYDROGEN_COOLDOWN = 2000;
 function start() {
 	setInterval(updateStats_JS, 1000 / TPS);
 	setInterval(updateStats_HTML, 1000 / FPS);
+
+	$("hydrogen-button").addEventListener("click", searchHydrogen);
 }
 
-function get() {
+function searchHydrogen() {
 	hydrogen.cooldown = true;
 
 	const text = $("hydrogen-button-text").textContent;
@@ -51,6 +53,3 @@ function updateStats_HTML() {
 	$("hydrogen-value").textContent = hydrogen.value;
 	$("hydrogen-button").disabled = hydrogen.cooldown;
 }
-
-const $ = id => document.getElementById(id);
-const rng = (min, max) => Math.floor(Math.random() * ((max + 1) - min)) + min;
