@@ -5,5 +5,5 @@ p {
 }
 
 /* class modifiers */
-p.small { font-size: 0.67em; }
-p.big { font-size: 1.33em; }
+p.small, span.small { font-size: 0.67em; }
+p.big,   span.big   { font-size: 1.33em; }
