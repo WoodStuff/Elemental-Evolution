@@ -8,11 +8,15 @@ let TIMERS = [];
 let hydrogen = {
 	value: 0,
 	cooldown: false,
+
 	up_efficiency: 0,
 	up_speed: 0,
 
 	min_gather: () => Math.round(0.75 * (hydrogen.up_efficiency + 3)),
 	max_gather: () => Math.round(1.25 * (hydrogen.up_efficiency + 3)),
+	gather: () => rng(hydrogen.min_gather(), hydrogen.max_gather()),
+
+	up_efficiency_cost: () => hydrogen.up_efficiency * 2,
 };
 const HYDROGEN_COOLDOWN = 2000;
 
@@ -21,7 +25,7 @@ function start() {
 	setInterval(updateStats_HTML, 1000 / FPS);
 
 	$("H-button").addEventListener("click", searchHydrogen);
-	$("H-up-efficiency").addEventListener("click", () => hydrogen.up_efficiency++);
+	$("H-efficiency").addEventListener("click", upgradeEfficiency);
 }
 
 function searchHydrogen() {
@@ -30,12 +34,17 @@ function searchHydrogen() {
 	const text = $("H-button-text").textContent;
 	const timer = new Timer(() => {
 		hydrogen.cooldown = false;
-		hydrogen.value += rng(hydrogen.min_gather(), hydrogen.max_gather());
+		hydrogen.value += hydrogen.gather();
 		$("H-button-text").textContent = text;
 	}, HYDROGEN_COOLDOWN, $("H-button-text"));
 	TIMERS.push(timer);
 
 	progressBar();
+}
+
+function upgradeEfficiency() {
+	hydrogen.value -= hydrogen.up_efficiency_cost();
+	hydrogen.up_efficiency++;
 }
 
 function progressBar() {
@@ -58,5 +67,9 @@ function updateStats_JS() {
 function updateStats_HTML() {
 	$("H-value").textContent = hydrogen.value;
 	$("H-button").disabled = hydrogen.cooldown;
-	$("H-up-efficiency-amount").textContent = hydrogen.up_efficiency;
+	$("H-button-min").textContent = hydrogen.min_gather();
+	$("H-button-max").textContent = hydrogen.max_gather();
+	$("H-efficiency").disabled = hydrogen.value < hydrogen.up_efficiency_cost();
+	$("H-efficiency-amount").textContent = hydrogen.up_efficiency;
+	$("H-efficiency-cost").textContent = hydrogen.up_efficiency_cost();
 }
