@@ -4,13 +4,14 @@ button {
 	width: 150px;
 	height: 100px;
 
-	background-color: #eeeeee;
-	color: #222222;
-	border: 2px solid #888888;
+	font-size: 0.9em;
+	background-color: var(--button-bg);
+	color: var(--button-text);
+	border: 2px solid var(--button-border);
 	border-radius: 4px;
 }
-button:hover  { background-color: #f6f6f6; }
-button:active { background-color: #e2e2e2; }
+button:hover    { background-color: #f6f6f6; }
+button:active   { background-color: #e2e2e2; }
 button:disabled { background-color: #d0d0d0; }
 
 /* class modifiers */
@@ -24,5 +25,35 @@ button.stall  { height: 125px; }
 button.tall   { height: 150px; }
 button.xtall  { height: 200px; }
 button.xxtall { height: 250px; }
-button.small { font-size: 0.67em; }
-button.big   { font-size: 1.33em; }
+button.small  { font-size: 0.67em; }
+button.big    { font-size: 1.33em; }
+
+/* miscellaneous button contents */
+button > div.progress {
+	position: absolute;
+
+	background-color: rgba(0, 0, 0, 0.2);
+
+	width: 0%;
+	height: 100%;
+	left: 0;
+	top: 0;
+}
+
+button > div.amount {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background-color: var(--button-bg);
+	border: 2px solid var(--button-border);
+	border-radius: 20px;
+
+	padding: 4px;
+	
+	min-width: 40px;
+	height: 40px;
+	left: -20px;
+	top: -20px;
+}
