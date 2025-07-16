@@ -30,3 +30,11 @@ div.tab {
 	align-items: center;
 	gap: 16px;
 }
+
+div#bottom {
+	position: absolute;
+	left: 4px;
+	bottom: 4px;
+
+	font-size: 0.67em;
+}
