@@ -6,6 +6,7 @@
 	--button-border: #888888;
 }
 
+/* main page settings */
 * {
 	box-sizing: border-box;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -24,6 +25,7 @@ body {
 	align-items: center;
 }
 
+/* page components */
 div.tab {
 	display: flex;
 	flex-direction: column;
@@ -37,4 +39,9 @@ div#bottom {
 	bottom: 4px;
 
 	font-size: 0.67em;
+}
+
+/* class modifiers */
+.hidden {
+	display: none;
 }

@@ -16,14 +16,16 @@ let hydrogen = {
 	max_gather: () => Math.round(1.25 * (hydrogen.up_efficiency + 3)),
 	gather: () => rng(hydrogen.min_gather(), hydrogen.max_gather()),
 
-	up_efficiency_cost: () => hydrogen.up_efficiency * 2,
+	up_efficiency_cost: () => Math.round(Math.pow(1.25, hydrogen.up_efficiency) * 10),
 };
 const HYDROGEN_COOLDOWN = 2000;
 
 function start() {
+	// set up update cycles
 	setInterval(updateStats_JS, 1000 / TPS);
 	setInterval(updateStats_HTML, 1000 / FPS);
 
+	// set up event listeners for buttons
 	$("H-button").addEventListener("click", searchHydrogen);
 	$("H-efficiency").addEventListener("click", upgradeEfficiency);
 }
@@ -72,4 +74,7 @@ function updateStats_HTML() {
 	$("H-efficiency").disabled = hydrogen.value < hydrogen.up_efficiency_cost();
 	$("H-efficiency-amount").textContent = hydrogen.up_efficiency;
 	$("H-efficiency-cost").textContent = hydrogen.up_efficiency_cost();
+
+	// unlocks
+	if (hydrogen.value >= 10) $("H-efficiency").classList.remove("hidden");
 }
