@@ -12,8 +12,9 @@ let hydrogen = {
 	up_efficiency: 0,
 	up_cooldown: 0,
 
-	min_gather: () => Math.round(0.75 * (hydrogen.up_efficiency + 3)),
-	max_gather: () => Math.round(1.25 * (hydrogen.up_efficiency + 3)),
+	mid_gather: () => 3 + hydrogen.up_efficiency,
+	min_gather: () => Math.round(0.75 * hydrogen.mid_gather()),
+	max_gather: () => Math.round(1.25 * hydrogen.mid_gather()),
 	gather: () => rng(hydrogen.min_gather(), hydrogen.max_gather()),
 	cooldown_time: () => 2000 * (Math.pow(0.8, hydrogen.up_cooldown)),
 
