@@ -10,15 +10,16 @@ let hydrogen = {
 	cooldown: false,
 
 	up_efficiency: 0,
-	up_speed: 0,
+	up_cooldown: 0,
 
 	min_gather: () => Math.round(0.75 * (hydrogen.up_efficiency + 3)),
 	max_gather: () => Math.round(1.25 * (hydrogen.up_efficiency + 3)),
 	gather: () => rng(hydrogen.min_gather(), hydrogen.max_gather()),
+	cooldown_time: () => 2000 * (Math.pow(0.8, hydrogen.up_cooldown)),
 
 	up_efficiency_cost: () => Math.round(Math.pow(1.25, hydrogen.up_efficiency) * 10),
+	up_cooldown_cost: () => Math.round(Math.pow(1.5, hydrogen.up_cooldown) * 25),
 };
-const HYDROGEN_COOLDOWN = 2000;
 
 function start() {
 	// set up update cycles
@@ -28,6 +29,7 @@ function start() {
 	// set up event listeners for buttons
 	$("H-button").addEventListener("click", searchHydrogen);
 	$("H-efficiency").addEventListener("click", upgradeEfficiency);
+	$("H-cooldown").addEventListener("click", upgradeCooldown);
 }
 
 function searchHydrogen() {
@@ -38,7 +40,7 @@ function searchHydrogen() {
 		hydrogen.cooldown = false;
 		hydrogen.value += hydrogen.gather();
 		$("H-button-text").textContent = text;
-	}, HYDROGEN_COOLDOWN, $("H-button-text"));
+	}, hydrogen.cooldown_time(), $("H-button-text"));
 	TIMERS.push(timer);
 
 	progressBar();
@@ -49,9 +51,14 @@ function upgradeEfficiency() {
 	hydrogen.up_efficiency++;
 }
 
+function upgradeCooldown() {
+	hydrogen.value -= hydrogen.up_cooldown_cost();
+	hydrogen.up_cooldown++;
+}
+
 function progressBar() {
 	const progress = $("H-progress");
-	progress.style.transition = `${HYDROGEN_COOLDOWN / 1000}s linear`;
+	progress.style.transition = `${hydrogen.cooldown_time() / 1000}s linear`;
 	progress.style.width = "100%";
 
 	progress.addEventListener("transitionend", () => {
@@ -74,7 +81,11 @@ function updateStats_HTML() {
 	$("H-efficiency").disabled = hydrogen.value < hydrogen.up_efficiency_cost();
 	$("H-efficiency-amount").textContent = hydrogen.up_efficiency;
 	$("H-efficiency-cost").textContent = hydrogen.up_efficiency_cost();
+	$("H-cooldown").disabled = hydrogen.value < hydrogen.up_cooldown_cost();
+	$("H-cooldown-amount").textContent = hydrogen.up_cooldown;
+	$("H-cooldown-cost").textContent = hydrogen.up_cooldown_cost();
 
 	// unlocks
 	if (hydrogen.value >= 10) $("H-efficiency").classList.remove("hidden");
+	if (hydrogen.value >= 25) $("H-cooldown").classList.remove("hidden");
 }

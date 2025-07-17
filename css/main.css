@@ -26,6 +26,14 @@ body {
 }
 
 /* page components */
+div#bottom {
+	position: absolute;
+	left: 4px;
+	bottom: 4px;
+
+	font-size: 0.67em;
+}
+
 div.tab {
 	display: flex;
 	flex-direction: column;
@@ -33,12 +41,9 @@ div.tab {
 	gap: 16px;
 }
 
-div#bottom {
-	position: absolute;
-	left: 4px;
-	bottom: 4px;
-
-	font-size: 0.67em;
+div.panel {
+	display: flex;
+	gap: 8px;
 }
 
 /* class modifiers */

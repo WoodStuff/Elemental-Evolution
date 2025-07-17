@@ -23,18 +23,26 @@
 			<p id="H-label" class="big">You have <span id="H-value">0</span> hydrogen</p>
 			<button id="H-button" class="xwide tall big">
 				<p id="H-button-text">Gather</p>
-				<p class="small">(<span id="H-button-min">0</span>–<span id="H-button-max">0</span>)</p>
+				<p class="small">(<span id="H-button-min">?</span>–<span id="H-button-max">?</span>)</p>
 				<div id="H-progress" class="progress"></div>
 				<div></div>
 			</button>
 
 			<br>
 
-			<button id="H-efficiency" class="hidden">
-				<p>Efficiency</p>
-				<p class="small">Cost: <span id="H-efficiency-cost">5</span> H</p>
-				<div id="H-efficiency-amount" class="amount">0</div>
-			</button>
+			<div class="panel">
+				<button id="H-efficiency" class="hidden">
+					<p>Efficiency</p>
+					<p class="small">Cost: <span id="H-efficiency-cost">?</span> H</p>
+					<div id="H-efficiency-amount" class="amount">?</div>
+				</button>
+
+				<button id="H-cooldown" class="hidden">
+					<p>Cooldown</p>
+					<p class="small">Cost: <span id="H-cooldown-cost">?</span> H</p>
+					<div id="H-cooldown-amount" class="amount right">?</div>
+				</button>
+			</div>
 		</div>
 
 		<div id="bottom">Elemental Evolution v0</div>
