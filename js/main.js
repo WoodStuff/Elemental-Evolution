@@ -12,14 +12,14 @@ let hydrogen = {
 	up_efficiency: 0,
 	up_cooldown: 0,
 
-	mid_gather: () => 3 + hydrogen.up_efficiency,
+	mid_gather: () => 2 + hydrogen.up_efficiency + Math.pow(1.1, hydrogen.up_efficiency),
 	min_gather: () => Math.round(0.75 * hydrogen.mid_gather()),
 	max_gather: () => Math.round(1.25 * hydrogen.mid_gather()),
 	gather: () => rng(hydrogen.min_gather(), hydrogen.max_gather()),
 	cooldown_time: () => 2000 * (Math.pow(0.8, hydrogen.up_cooldown)),
 
 	up_efficiency_cost: () => Math.round(Math.pow(1.25, hydrogen.up_efficiency) * 10),
-	up_cooldown_cost: () => Math.round(Math.pow(1.5, hydrogen.up_cooldown) * 25),
+	up_cooldown_cost: () => Math.round(Math.pow(1.5, hydrogen.up_cooldown) * 40),
 };
 
 function start() {
@@ -88,5 +88,5 @@ function updateStats_HTML() {
 
 	// unlocks
 	if (hydrogen.value >= 10) $("H-efficiency").classList.remove("hidden");
-	if (hydrogen.value >= 25) $("H-cooldown").classList.remove("hidden");
+	if (hydrogen.value >= 40) $("H-cooldown").classList.remove("hidden");
 }
