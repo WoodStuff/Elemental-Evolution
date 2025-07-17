@@ -48,11 +48,13 @@ function searchHydrogen() {
 }
 
 function upgradeEfficiency() {
+	if (hydrogen.value < hydrogen.up_efficiency_cost()) return;
 	hydrogen.value -= hydrogen.up_efficiency_cost();
 	hydrogen.up_efficiency++;
 }
 
 function upgradeCooldown() {
+	if (hydrogen.value < hydrogen.up_cooldown_cost()) return;
 	hydrogen.value -= hydrogen.up_cooldown_cost();
 	hydrogen.up_cooldown++;
 }
