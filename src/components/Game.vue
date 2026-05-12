@@ -1,16 +1,14 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-
-const hydrogen = ref<number>(0);
-
+import { hydrogen } from '../gamestate';
+	
 function gather(): void {
-	hydrogen.value++;
+	hydrogen.amount += 3;
 }
 </script>
 
 <template>
 	<div class="element-tab">
-		<p class="big">You have {{ hydrogen }} hydrogen</p>
+		<p class="big">You have {{ hydrogen.amount }} hydrogen</p>
 		<button class="xwide tall big" @click="gather">Gather</button>
 	</div>
 </template>
