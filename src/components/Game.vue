@@ -9,7 +9,10 @@ function gather(): void {
 <template>
 	<div class="element-tab">
 		<p class="big">You have {{ hydrogen.amount }} hydrogen</p>
-		<button class="xwide tall big" @click="gather">Gather</button>
+		<button class="xwide tall big" @click="gather">
+			Gather
+			<p class="small">({{ hydrogen.minGather }}–{{ hydrogen.maxGather }})</p>
+		</button>
 	</div>
 </template>
 
