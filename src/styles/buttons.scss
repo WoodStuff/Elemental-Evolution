@@ -15,17 +15,6 @@ button:active   { background-color: #e2e2e2; }
 button:disabled { background-color: #d0d0d0; }
 
 /* miscellaneous button contents */
-button > div.progress {
-	position: absolute;
-
-	background-color: rgba(0, 0, 0, 0.2);
-
-	width: 0%;
-	height: 100%;
-	left: 0;
-	top: 0;
-}
-
 button > div.amount {
 	position: absolute;
 	display: flex;

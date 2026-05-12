@@ -10,4 +10,6 @@ export const hydrogen = reactive({
 	minGather: computed(() => Math.round(hydrogen.baseGather * 0.75)),
 	maxGather: computed(() => Math.round(hydrogen.baseGather * 1.25)),
 	getGatherAmount: () => random(hydrogen.minGather, hydrogen.maxGather),
+
+	// Gathering state
 });
