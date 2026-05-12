@@ -16,7 +16,7 @@ function gather(): void {
 </template>
 
 <style lang="scss" scoped>
-.element-tab {
+div.element-tab {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
