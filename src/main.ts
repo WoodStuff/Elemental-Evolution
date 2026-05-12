@@ -1,4 +1,8 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
 
-createApp(App).mount('#app')
+import './styles/variables.scss';
+import './styles/buttons.scss';
+import './styles/modifiers.scss';
+
+createApp(App).mount('#app');
