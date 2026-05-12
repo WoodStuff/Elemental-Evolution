@@ -2,7 +2,7 @@
 import { hydrogen } from '../gamestate';
 	
 function gather(): void {
-	hydrogen.amount += 3;
+	hydrogen.amount += hydrogen.getGatherAmount();
 }
 </script>
 
