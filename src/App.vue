@@ -1,7 +1,7 @@
 <script setup>
-	import Thing from './components/Thing.vue'
+	import Game from './components/Game.vue'
 </script>
 
 <template>
-	<Thing></Thing>
+	<Game></Game>
 </template>
