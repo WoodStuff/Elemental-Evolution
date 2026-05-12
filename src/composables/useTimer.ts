@@ -8,7 +8,6 @@ export function useTimer(durationMs: number, onDone?: () => void) {
 	let rafId = 0;
 
 	const progress = computed(() => Math.min(elapsed.value / durationMs, 1));
-
 	const remainingMs = computed(() => Math.max(durationMs - elapsed.value, 0));
 
 	function tick(now: number) {
