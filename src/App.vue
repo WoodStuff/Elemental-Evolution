@@ -1,9 +1,12 @@
 <script setup>
+import Footer from './components/Footer.vue';
 import Game from './components/Game.vue'
 </script>
 
 <template>
 	<Game></Game>
+
+	<Footer></Footer>
 </template>
 
 <style lang="scss">
