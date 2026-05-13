@@ -3,7 +3,7 @@ import { computed } from 'vue';
 import { useTimer } from '../composables/useTimer';
 import { hydrogen } from '../gamestate';
 
-const gatherTimer = useTimer(2000, finishGathering);
+const gatherTimer = useTimer(200, finishGathering);
 const gatherText = computed(() => {
 	if (!gatherTimer.running.value) return 'Gather';
 
@@ -15,7 +15,7 @@ function startGathering(): void {
 	gatherTimer.start();
 }
 function finishGathering(): void {
-	hydrogen.amount += hydrogen.getGatherAmount();
+	hydrogen.amount.value += hydrogen.getGatherAmount();
 }
 </script>
 

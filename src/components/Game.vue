@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { hydrogen } from '../gamestate';
 import GatherButton from './GatherButton.vue';
+import UpgradeButton from './UpgradeButton.vue';
 </script>
 
 <template>
 	<div class="element-tab">
 		<p class="big">You have {{ hydrogen.amount }} hydrogen</p>
 		<GatherButton />
+		<br>
+		<UpgradeButton :type="hydrogen.upEfficiency" />
 	</div>
 </template>
 

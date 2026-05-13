@@ -1,15 +1,20 @@
-import { computed, reactive } from "vue";
+import { computed, ref, shallowReactive } from "vue";
 import { random } from "./utils";
+import { useUpgrade } from "./composables/useUpgrade";
 
-export const hydrogen = reactive({
+export const hydrogen = shallowReactive({
 	// Main
-	amount: 0,
+	amount: ref(0),
 	
 	// Gathering
-	baseGather: 3,
-	minGather: computed(() => Math.round(hydrogen.baseGather * 0.75)),
-	maxGather: computed(() => Math.round(hydrogen.baseGather * 1.25)),
-	getGatherAmount: () => random(hydrogen.minGather, hydrogen.maxGather),
+	baseGather: computed<number>(() => {
+		const eff: number = hydrogen.upEfficiency.amount.value;
+		return (3 + eff) * Math.pow(1.04, eff);
+	}),
+	minGather: computed<number>(() => Math.round(hydrogen.baseGather.value * 0.75)),
+	maxGather: computed<number>(() => Math.round(hydrogen.baseGather.value * 1.25)),
+	getGatherAmount: () => random(hydrogen.minGather.value, hydrogen.maxGather.value),
 
-	// Gathering state
+	// Upgrades
+	upEfficiency: useUpgrade("Efficiency", n => Math.round(Math.pow(1.25, n) * 10)),
 });
