@@ -20,7 +20,7 @@ function finishGathering(): void {
 </script>
 
 <template>
-	<button class="xwide tall big" :disabled="gatherTimer.running.value" @click="startGathering">
+	<button :disabled="gatherTimer.running.value" @click="startGathering">
 		<p>{{ gatherText }}</p>
 		<p class="small">({{ hydrogen.minGather }}–{{ hydrogen.maxGather }})</p>
 		<div class="progress" :style="{
@@ -30,13 +30,19 @@ function finishGathering(): void {
 </template>
 
 <style lang="scss" scoped>
-button > div.progress {
-	position: absolute;
-	transition: 0s;
-	background-color: rgba(0, 0, 0, 0.2);
+button {
+	width: 250px;
+	height: 150px;
+	font-size: 1.33em;
 
-	height: 100%;
-	left: 0;
-	top: 0;
+	& > div.progress {
+		position: absolute;
+		transition: 0s;
+		background-color: rgba(0, 0, 0, 0.2);
+
+		height: 100%;
+		left: 0;
+		top: 0;
+	}
 }
 </style>
