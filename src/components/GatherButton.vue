@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useTimer } from '../composables/useTimer';
-import { hydrogen } from '../gamestate';
+import { useHydrogen } from '../composables/useHydrogen';
+
+const hydrogen = useHydrogen();
 
 const gatherTimer = useTimer(hydrogen.gatherCooldown, finishGathering);
 const gatherText = computed(() => {

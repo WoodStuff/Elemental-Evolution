@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { hydrogen } from '../gamestate';
 import GatherButton from './GatherButton.vue';
 import UpgradeButton from './UpgradeButton.vue';
+import { useHydrogen } from '../composables/useHydrogen';
+
+const hydrogen = useHydrogen();
 </script>
 
 <template>

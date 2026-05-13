@@ -1,16 +1,15 @@
-import { computed, ref } from "vue";
-import { hydrogen } from "../gamestate";
+import { computed, Ref, ref } from "vue";
 
-export function useUpgrade(name: string, costFormula: (n: number) => number) {
+export function useUpgrade(name: string, currency: Ref<number>, costFormula: (n: number) => number) {
 	const amount = ref(0);
 	const cost = computed(() => costFormula(amount.value));
 
-	const canAfford = () => hydrogen.amount.value >= cost.value;
+	const canAfford = () => currency.value >= cost.value;
 
 	function buy() {
 		if (!canAfford) return;
 
-		hydrogen.amount.value -= cost.value;
+		currency.value -= cost.value;
 		amount.value++;
 	}
 
