@@ -11,8 +11,6 @@ const { amount, highest, upEfficiency, upCooldown } = useHydrogen();
 		<p class="big">You have {{ amount }} hydrogen</p>
 		<GatherButton />
 
-		<br v-if="highest >= 10">
-
 		<div class="upgrades" v-if="highest >= 10">
 			<UpgradeButton :type="upEfficiency" />
 			<UpgradeButton :type="upCooldown" v-if="highest >= 40" />
@@ -30,6 +28,8 @@ div.element-tab {
 	& > div.upgrades {
 		display: flex;
 		gap: 8px;
+
+		margin-top: 16px;
 	}
 }
 </style>
