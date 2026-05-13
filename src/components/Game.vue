@@ -8,8 +8,13 @@ import UpgradeButton from './UpgradeButton.vue';
 	<div class="element-tab">
 		<p class="big">You have {{ hydrogen.amount }} hydrogen</p>
 		<GatherButton />
-		<br v-if="hydrogen.total.value >= 10">
-		<UpgradeButton :type="hydrogen.upEfficiency" v-if="hydrogen.total.value >= 10" />
+
+		<br v-if="hydrogen.highest.value >= 10">
+
+		<div class="upgrades" v-if="hydrogen.highest.value >= 10">
+			<UpgradeButton :type="hydrogen.upEfficiency" />
+			<UpgradeButton :type="hydrogen.upCooldown" v-if="hydrogen.highest.value >= 40" />
+		</div>
 	</div>
 </template>
 
@@ -19,5 +24,10 @@ div.element-tab {
 	flex-direction: column;
 	align-items: center;
 	gap: 16px;
+
+	& > div.upgrades {
+		display: flex;
+		gap: 8px;
+	}
 }
 </style>

@@ -3,7 +3,7 @@ import { computed } from 'vue';
 import { useTimer } from '../composables/useTimer';
 import { hydrogen } from '../gamestate';
 
-const gatherTimer = useTimer(200, finishGathering);
+const gatherTimer = useTimer(hydrogen.gatherCooldown, finishGathering);
 const gatherText = computed(() => {
 	if (!gatherTimer.running.value) return 'Gather';
 
