@@ -5,6 +5,7 @@ import { useUpgrade } from "./composables/useUpgrade";
 export const hydrogen = shallowReactive({
 	// Main
 	amount: ref(0),
+	total: ref(0),
 	
 	// Gathering
 	baseGather: computed<number>(() => {
@@ -17,4 +18,10 @@ export const hydrogen = shallowReactive({
 
 	// Upgrades
 	upEfficiency: useUpgrade("Efficiency", n => Math.round(Math.pow(1.25, n) * 10)),
+
+	// Actions
+	gain(amount: number) {
+		hydrogen.amount.value += amount;
+		if (amount > 0) hydrogen.total.value += amount;
+	}
 });

@@ -8,8 +8,8 @@ import UpgradeButton from './UpgradeButton.vue';
 	<div class="element-tab">
 		<p class="big">You have {{ hydrogen.amount }} hydrogen</p>
 		<GatherButton />
-		<br>
-		<UpgradeButton :type="hydrogen.upEfficiency" />
+		<br v-if="hydrogen.total.value >= 10">
+		<UpgradeButton :type="hydrogen.upEfficiency" v-if="hydrogen.total.value >= 10" />
 	</div>
 </template>
 
