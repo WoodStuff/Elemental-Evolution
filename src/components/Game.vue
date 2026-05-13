@@ -2,8 +2,16 @@
 import GatherButton from './GatherButton.vue';
 import UpgradeButton from './UpgradeButton.vue';
 import { useHydrogen } from '../composables/useHydrogen';
+import { computed } from 'vue';
 
 const { amount, highest, upEfficiency, upCooldown } = useHydrogen();
+
+const upgradeUnlocks = {
+	efficiency: 10,
+	cooldown: 40,
+}
+const showUpEfficiency = computed(() => highest.value >= upgradeUnlocks.efficiency);
+const showUpCooldown = computed(() => highest.value >= upgradeUnlocks.cooldown);
 </script>
 
 <template>
@@ -11,9 +19,9 @@ const { amount, highest, upEfficiency, upCooldown } = useHydrogen();
 		<p class="big">You have {{ amount }} hydrogen</p>
 		<GatherButton />
 
-		<div class="upgrades" v-if="highest >= 10">
+		<div class="upgrades" v-if="showUpEfficiency">
 			<UpgradeButton :type="upEfficiency" />
-			<UpgradeButton :type="upCooldown" v-if="highest >= 40" />
+			<UpgradeButton :type="upCooldown" v-if="showUpCooldown" />
 		</div>
 	</div>
 </template>
