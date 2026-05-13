@@ -1,5 +1,5 @@
 <template>
-	<div id="footer">Elemental Evolution v0 • Current endgame: ? H</div>
+	<div id="footer">Elemental Evolution v0 • Current endgame: 500 H</div>
 </template>
 
 <style lang="scss" scoped>
