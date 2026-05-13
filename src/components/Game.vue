@@ -6,7 +6,7 @@ import GatherButton from './GatherButton.vue';
 <template>
 	<div class="element-tab">
 		<p class="big">You have {{ hydrogen.amount }} hydrogen</p>
-		<GatherButton></GatherButton>
+		<GatherButton />
 	</div>
 </template>
 

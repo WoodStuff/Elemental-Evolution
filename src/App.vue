@@ -4,9 +4,9 @@ import Game from './components/Game.vue'
 </script>
 
 <template>
-	<Game></Game>
+	<Game />
 
-	<Footer></Footer>
+	<Footer />
 </template>
 
 <style lang="scss">
