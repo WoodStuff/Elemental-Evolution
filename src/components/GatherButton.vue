@@ -3,9 +3,9 @@ import { computed } from 'vue';
 import { useTimer } from '../composables/useTimer';
 import { useHydrogen } from '../composables/useHydrogen';
 
-const hydrogen = useHydrogen();
+const { gather, gatherCooldown, minGather, maxGather } = useHydrogen();
 
-const gatherTimer = useTimer(hydrogen.gatherCooldown, finishGathering);
+const gatherTimer = useTimer(gatherCooldown, finishGathering);
 const gatherText = computed(() => {
 	if (!gatherTimer.running.value) return 'Gather';
 
@@ -17,14 +17,14 @@ function startGathering(): void {
 	gatherTimer.start();
 }
 function finishGathering(): void {
-	hydrogen.gather();
+	gather();
 }
 </script>
 
 <template>
 	<button :disabled="gatherTimer.running.value" @click="startGathering">
 		<p>{{ gatherText }}</p>
-		<p class="small">({{ hydrogen.minGather }}–{{ hydrogen.maxGather }})</p>
+		<p class="small">({{ minGather }}–{{ maxGather }})</p>
 		<div class="progress" :style="{
 			width: `${gatherTimer.progress.value * 100}%`,
 		}"></div>

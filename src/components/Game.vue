@@ -3,19 +3,19 @@ import GatherButton from './GatherButton.vue';
 import UpgradeButton from './UpgradeButton.vue';
 import { useHydrogen } from '../composables/useHydrogen';
 
-const hydrogen = useHydrogen();
+const { amount, highest, upEfficiency, upCooldown } = useHydrogen();
 </script>
 
 <template>
 	<div class="element-tab">
-		<p class="big">You have {{ hydrogen.amount }} hydrogen</p>
+		<p class="big">You have {{ amount }} hydrogen</p>
 		<GatherButton />
 
-		<br v-if="hydrogen.highest.value >= 10">
+		<br v-if="highest >= 10">
 
-		<div class="upgrades" v-if="hydrogen.highest.value >= 10">
-			<UpgradeButton :type="hydrogen.upEfficiency" />
-			<UpgradeButton :type="hydrogen.upCooldown" v-if="hydrogen.highest.value >= 40" />
+		<div class="upgrades" v-if="highest >= 10">
+			<UpgradeButton :type="upEfficiency" />
+			<UpgradeButton :type="upCooldown" v-if="highest >= 40" />
 		</div>
 	</div>
 </template>
