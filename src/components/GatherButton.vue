@@ -17,7 +17,7 @@ function startGathering(): void {
 	gatherTimer.start();
 }
 function finishGathering(): void {
-	hydrogen.gain(hydrogen.getGatherAmount());
+	hydrogen.gather();
 }
 </script>
 

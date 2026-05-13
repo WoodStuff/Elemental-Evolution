@@ -13,7 +13,6 @@ const baseGather = computed(() => {
 });
 const minGather = computed(() => Math.round(baseGather.value * 0.75));
 const maxGather = computed(() => Math.round(baseGather.value * 1.25));
-const getGatherAmount = () => random(minGather.value, maxGather.value);
 const gatherCooldown = computed(() => 200 * (Math.pow(0.8, upCooldown.amount.value)));
 
 // Upgrades
@@ -25,6 +24,10 @@ function gain(n: number) {
 	amount.value += n;
 	if (amount.value > highest.value) highest.value = amount.value;
 }
+function gather() {
+	const gatherAmount = random(minGather.value, maxGather.value);
+	gain(gatherAmount);
+}
 
 export function useHydrogen() {
 	return {
@@ -34,12 +37,12 @@ export function useHydrogen() {
 		baseGather,
 		minGather,
 		maxGather,
-		getGatherAmount,
 		gatherCooldown,
 
 		upEfficiency,
 		upCooldown,
 
 		gain,
+		gather,
 	}
 }
