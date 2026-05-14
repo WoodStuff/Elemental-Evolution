@@ -13,7 +13,8 @@ const baseGather = computed(() => {
 });
 const minGather = computed(() => Math.round(baseGather.value * 0.75));
 const maxGather = computed(() => Math.round(baseGather.value * 1.25));
-const gatherCooldown = computed(() => 200 * (Math.pow(0.8, upCooldown.amount.value)));
+const _baseCooldown = 2000;
+const gatherCooldown = computed(() => _baseCooldown * (Math.pow(0.8, upCooldown.amount.value)));
 
 // Upgrades
 const upEfficiency = useUpgrade("Efficiency", amount, n => Math.round(Math.pow(1.25, n) * 10));
