@@ -10,7 +10,7 @@ const { amount, highest, upEfficiency, upCooldown } = useHydrogen();
 const upgrades: Upgrade[] = [upEfficiency, upCooldown];
 const filteredUpgrades = computed(() => upgrades.filter(up => {
 	if (up === upEfficiency) return highest.value >= 10;
-	if (up === upCooldown) return highest.value >= 40;
+	if (up === upCooldown) return highest.value >= 50;
 }));
 </script>
 

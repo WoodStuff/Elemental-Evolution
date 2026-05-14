@@ -8,7 +8,7 @@ const highest = ref(0);
 
 // Gathering
 const baseGather = computed(() => {
-	const eff: number = upEfficiency.amount.value;
+	const eff = upEfficiency.amount.value;
 	return (3 + eff) * Math.pow(1.04, eff);
 });
 const minGather = computed(() => Math.round(baseGather.value * 0.75));
@@ -18,7 +18,7 @@ const gatherCooldown = computed(() => _baseCooldown * (Math.pow(0.8, upCooldown.
 
 // Upgrades
 const upEfficiency = useUpgrade("Efficiency", amount, n => Math.round(Math.pow(1.25, n) * 10));
-const upCooldown = useUpgrade("Cooldown", amount, n => Math.round(Math.pow(1.5, n) * 40));
+const upCooldown = useUpgrade("Cooldown", amount, n => Math.round(Math.pow(1.5, n) * 50));
 
 // Actions
 function gain(n: number) {
