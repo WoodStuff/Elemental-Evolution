@@ -7,7 +7,7 @@ export function useUpgrade(name: string, currency: Ref<number>, costFormula: (n:
 	const canAfford = () => currency.value >= cost.value;
 
 	function buy() {
-		if (!canAfford) return;
+		if (!canAfford()) return;
 
 		currency.value -= cost.value;
 		amount.value++;
