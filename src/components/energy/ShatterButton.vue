@@ -20,7 +20,7 @@ const energyToGain = computed(() => conversionRate * shatterAmount.value);
 
 function shatter() {
 	energy.gain(energyToGain.value);
-	hydrogen.gain(-shatterAmount.value);
+	hydrogen.take(shatterAmount.value);
 }
 
 const canAfford = () => hydrogen.amount.value > 0;

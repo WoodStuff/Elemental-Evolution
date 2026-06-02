@@ -6,7 +6,7 @@ import { computed } from 'vue';
 import { Upgrade } from '../composables/useUpgrade';
 import EnergyTab from './energy/EnergyTab.vue';
 
-const { amount, highest, upEfficiency, upCooldown } = useHydrogen();
+const { amount, total, highest, upEfficiency, upCooldown } = useHydrogen();
 
 const upgrades: Upgrade[] = [upEfficiency, upCooldown];
 const filteredUpgrades = computed(() => upgrades.filter(up => {
@@ -25,7 +25,8 @@ const filteredUpgrades = computed(() => upgrades.filter(up => {
 				<UpgradeButton v-for="up in filteredUpgrades" :type="up" />
 			</div>
 		</div>
-		<EnergyTab />
+
+		<EnergyTab v-if="total > 1500" />
 	</div>
 </template>
 

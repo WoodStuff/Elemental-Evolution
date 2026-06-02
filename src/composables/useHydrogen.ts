@@ -4,6 +4,7 @@ import { useUpgrade } from "./useUpgrade";
 
 // Main
 const amount = ref(0);
+const total = ref(0);
 const highest = ref(0);
 
 // Gathering
@@ -23,20 +24,32 @@ const upCooldown = useUpgrade("Cooldown", amount, n => Math.round(Math.pow(1.6, 
 // Actions
 function gain(n: number) {
 	amount.value += n;
+	total.value += n;
 	if (amount.value > highest.value) highest.value = amount.value;
+}
+function take(n: number) {
+	amount.value -= n;
+	if (amount.value < 0) amount.value = 0;
 }
 function gather() {
 	const gatherAmount = random(minGather.value, maxGather.value);
 	gain(gatherAmount);
+	console.log(`total: ${total}`);
+	console.log(`highest: ${highest}`);
 }
 
-gain(500);
-upEfficiency.amount.value = 17;
-upCooldown.amount.value = 5;
+/*
+amount.value = 177;
+total.value = 1501;
+highest.value = 300;
+upEfficiency.amount.value = 14;
+upCooldown.amount.value = 4;
+*/
 
 export function useHydrogen() {
 	return {
 		amount,
+		total,
 		highest,
 
 		baseGather,
@@ -48,6 +61,7 @@ export function useHydrogen() {
 		upCooldown,
 
 		gain,
+		take,
 		gather,
 	}
 }
