@@ -3,17 +3,12 @@ import { MoveRightIcon, SmartphoneChargingIcon } from '@lucide/vue';
 import { useEnergy } from '../../composables/useEnergy';
 import { useHydrogen } from '../../composables/useHydrogen';
 import { computed, ref } from 'vue';
+import AmountButtons from '../AmountButtons.vue';
 
 const energy = useEnergy();
 const hydrogen = useHydrogen();
 
 const conversionRate = 0.01;
-
-const amounts = [
-	{ name: "1",    amount: 0 },
-	{ name: "50%",  amount: 0.5 },
-	{ name: "100%", amount: 1 },
-];
 
 let shatterPercent = ref(0);
 const shatterAmount = computed(() => {
@@ -41,10 +36,8 @@ const canAfford = () => hydrogen.amount.value > 0;
 				<span>{{ energyToGain }} <SmartphoneChargingIcon /></span>
 			</p>
 		</button>
-
-		<div class="amount-buttons">
-			<button v-for="btn in amounts" @click="shatterPercent = btn.amount">{{ btn.name }}</button>
-		</div>
+		
+		<AmountButtons @change="p => shatterPercent = p" />
 	</div>
 </template>
 
@@ -55,25 +48,6 @@ const canAfford = () => hydrogen.amount.value > 0;
 		height: 125px;
 		font-size: 1.25em;
 		border-radius: 4px 4px 0 0;
-	}
-
-	& > .amount-buttons {
-		display: flex;
-
-		& > button {
-			border-radius: 0;
-			border-width: 0 1px 2px 1px;
-			flex: 1;
-
-			&:first-child {
-				border-left-width: 2px;
-				border-bottom-left-radius: 4px;
-			}
-			&:last-child {
-				border-right-width: 2px;
-				border-bottom-right-radius: 4px;
-			}
-		}
 	}
 }
 </style>
