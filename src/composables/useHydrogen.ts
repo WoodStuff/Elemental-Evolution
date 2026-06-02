@@ -30,6 +30,10 @@ function gather() {
 	gain(gatherAmount);
 }
 
+gain(500);
+upEfficiency.amount.value = 17;
+upCooldown.amount.value = 5;
+
 export function useHydrogen() {
 	return {
 		amount,

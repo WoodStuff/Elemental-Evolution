@@ -4,6 +4,7 @@ import UpgradeButton from './UpgradeButton.vue';
 import { useHydrogen } from '../composables/useHydrogen';
 import { computed } from 'vue';
 import { Upgrade } from '../composables/useUpgrade';
+import EnergyTab from './energy/EnergyTab.vue';
 
 const { amount, highest, upEfficiency, upCooldown } = useHydrogen();
 
@@ -15,28 +16,36 @@ const filteredUpgrades = computed(() => upgrades.filter(up => {
 </script>
 
 <template>
-	<div class="element-tab">
-		<p class="big">You have {{ amount }} hydrogen</p>
-		<GatherButton />
+	<div id="game">
+		<div class="element-tab">
+			<p class="big">You have {{ amount }} hydrogen</p>
+			<GatherButton />
 
-		<div class="upgrades">
-			<UpgradeButton v-for="up in filteredUpgrades" :type="up" />
+			<div class="upgrades">
+				<UpgradeButton v-for="up in filteredUpgrades" :type="up" />
+			</div>
 		</div>
+		<EnergyTab />
 	</div>
 </template>
 
 <style lang="scss" scoped>
-div.element-tab {
+#game {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 16px;
+	gap: 100px;
 
-	& > div.upgrades {
+	& > .element-tab {
 		display: flex;
-		gap: 8px;
+		flex-direction: column;
+		align-items: center;
+		gap: 16px;
 
-		margin-top: 16px;
+		& > div.upgrades {
+			display: flex;
+			gap: 8px;
+
+			margin-top: 16px;
+		}
 	}
 }
 </style>
