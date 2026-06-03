@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+
 const emit = defineEmits<{
 	change: [number]
 }>()
@@ -8,11 +10,23 @@ const amounts = [
 	{ name: "50%",  percent: 0.5 },
 	{ name: "100%", percent: 1   },
 ];
+let selected = ref(0);
+
+function select(id: number) {
+	selected.value = id;
+	emit('change', amounts[id].percent)
+}
 </script>
 
 <template>
 	<div class="amount-buttons">
-		<button v-for="btn in amounts" @click="$emit('change', btn.percent)">{{ btn.name }}</button>
+		<button
+			:disabled="selected == i"
+			v-for="(btn, i) in amounts"
+			@click="select(i)"
+		>
+			{{ btn.name }}
+		</button>
 	</div>
 </template>
 
