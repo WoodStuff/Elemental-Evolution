@@ -14,7 +14,7 @@ import Game from './components/Game.vue'
 * {
 	font-family: 'Segoe UI', sans-serif;
 	box-sizing: border-box;
-	transition: 0.04s;
+	transition: 0.06s;
 }
 html, body, #app {
 	width: 100%;
