@@ -40,7 +40,7 @@ button {
 	& > div.progress {
 		position: absolute;
 		transition: 0s;
-		background-color: rgba(0, 0, 0, 0.2);
+		background-color: rgba(0, 0, 0, 0.05);
 
 		height: 100%;
 		left: 0;
