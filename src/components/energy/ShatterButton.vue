@@ -4,6 +4,7 @@ import { useEnergy } from '../../composables/useEnergy';
 import { useHydrogen } from '../../composables/useHydrogen';
 import { computed, ref } from 'vue';
 import AmountButtons from '../AmountButtons.vue';
+import { round } from '../../utils.ts';
 
 const energy = useEnergy();
 const hydrogen = useHydrogen();
@@ -14,9 +15,9 @@ let shatterPercent = ref(0);
 const shatterAmount = computed(() => {
 	if (shatterPercent.value === 0) return 1;
 
-	return Math.round(hydrogen.amount.value * shatterPercent.value);
+	return round(hydrogen.amount.value * shatterPercent.value);
 });
-const energyToGain = computed(() => conversionRate * shatterAmount.value);
+const energyToGain = computed(() => round(conversionRate * shatterAmount.value, 2));
 
 function shatter() {
 	energy.gain(energyToGain.value);

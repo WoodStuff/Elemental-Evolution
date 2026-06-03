@@ -1,4 +1,5 @@
 import { ref } from "vue";
+import { round } from "../utils";
 
 // Main
 const energy = ref(0);
@@ -11,7 +12,7 @@ function gain(n: number) {
 
 // Helpers
 function roundEnergy() {
-	energy.value = Math.round(energy.value * 100) / 100;
+	energy.value = round(energy.value, 2);
 }
 
 export function useEnergy() {
