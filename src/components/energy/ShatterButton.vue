@@ -25,12 +25,12 @@ function shatter() {
 	hydrogen.take(hydrogenToShatter.value);
 }
 
-const canAfford = () => hydrogen.amount.value > 0;
+const canAfford = computed(() => hydrogen.amount.value > 0);
 </script>
 
 <template>
 	<div class="shatter-container">
-		<button class="shatter-button" :disabled="!canAfford()" @click="shatter">
+		<button class="shatter-button" :disabled="!canAfford" @click="shatter">
 			<p>Shatter</p>
 			<p class="small reaction">
 				<span>{{ hydrogenToShatter }} H</span>
