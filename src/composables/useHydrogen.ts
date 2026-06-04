@@ -23,7 +23,7 @@ const upCooldown = useUpgrade("Cooldown", amount, n => Math.round(Math.pow(1.6, 
 
 // Dihydrogen
 const dihydrogen = ref(0);
-const upAttractor = useUpgrade("Attractor", dihydrogen, n => Math.round(Math.pow(2, n) * 5));
+const upAttraction = useUpgrade("Attraction", dihydrogen, n => Math.round(Math.pow(2, n) * 5));
 
 // Actions
 function gain(n: number) {
@@ -63,7 +63,7 @@ export function useHydrogen() {
 		upCooldown,
 
 		dihydrogen,
-		upAttractor,
+		upAttraction,
 
 		gain,
 		take,

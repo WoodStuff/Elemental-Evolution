@@ -4,9 +4,9 @@ import { Upgrade } from '../../composables/useUpgrade.ts';
 import UpgradeButton from '../hydrogen/UpgradeButton.vue';
 import CombineButton from './CombineButton.vue';
 
-const { dihydrogen, upAttractor } = useHydrogen();
+const { dihydrogen, upAttraction } = useHydrogen();
 
-const upgrades: Upgrade[] = [upAttractor];
+const upgrades: Upgrade[] = [upAttraction];
 </script>
 
 <template>
