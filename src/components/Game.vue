@@ -2,7 +2,7 @@
 import { useHydrogen } from '../composables/useHydrogen';
 import EnergyTab from '../components/energy/EnergyTab.vue';
 import HydrogenTab from './hydrogen/HydrogenTab.vue';
-import Dihydrogen from './dihydrogen/Dihydrogen.vue';
+import DihydrogenTab from './dihydrogen/DihydrogenTab.vue';
 import { useEnergy } from '../composables/useEnergy.ts';
 
 const { total: totalHydrogen } = useHydrogen();
@@ -17,7 +17,7 @@ const { highest: highestEnergy } = useEnergy();
 			<EnergyTab v-if="totalHydrogen >= 1500" />
 		</div>
 
-		<Dihydrogen v-if="highestEnergy >= 0.5" />
+		<DihydrogenTab v-if="highestEnergy >= 0.5" />
 	</div>
 </template>
 

@@ -9,6 +9,8 @@ const { dihydrogen } = useHydrogen();
 	<div class="dihydrogen">
 		<p class="big">You have {{ dihydrogen }} H<sub>2</sub></p>
 		<CombineButton />
+
+		<div class="upgrades"></div>
 	</div>
 </template>
 
