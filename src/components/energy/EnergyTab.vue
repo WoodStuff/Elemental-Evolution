@@ -2,12 +2,12 @@
 import { useEnergy } from '../../composables/useEnergy';
 import ShatterButton from './ShatterButton.vue';
 
-const { energy } = useEnergy();
+const { amount } = useEnergy();
 </script>
 
 <template>
 	<div id="energy-tab">
-		<p class="big">{{ energy }} energy</p>
+		<p class="big">{{ amount }} energy</p>
 		<ShatterButton />
 	</div>
 </template>

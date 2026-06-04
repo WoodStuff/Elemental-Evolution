@@ -2,35 +2,35 @@ import { ref } from "vue";
 import { round } from "../utils";
 
 // Main
-const energy = ref(0);
+const amount = ref(0);
 const highest = ref(0);
 
 // Actions
 function gain(n: number) {
-	energy.value += n;
-	if (energy.value > highest.value) highest.value = energy.value;
+	amount.value += n;
+	if (amount.value > highest.value) highest.value = amount.value;
 
 	roundEnergy();
 }
 function take(n: number) {
-	energy.value -= n;
+	amount.value -= n;
 
 	roundEnergy();
 }
 
 // Helpers
 function roundEnergy() {
-	energy.value = round(energy.value, 2);
+	amount.value = round(amount.value, 2);
 }
 
 if (0) {
-	energy.value = 5;
+	amount.value = 5;
 	highest.value = 5;
 }
 
 export function useEnergy() {
 	return {
-		energy,
+		amount,
 		highest,
 
 		gain,
