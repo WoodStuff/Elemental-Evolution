@@ -2,6 +2,7 @@
 import { MoveRightIcon, SmartphoneChargingIcon } from '@lucide/vue';
 import { useHydrogen } from '../../composables/useHydrogen';
 import { useEnergy } from '../../composables/useEnergy';
+import { computed } from 'vue';
 
 const hydrogen = useHydrogen();
 const energy = useEnergy();
@@ -12,10 +13,12 @@ function combine() {
 
 	hydrogen.dihydrogen.value++;
 }
+
+const canAfford = computed(() => hydrogen.amount.value >= 2 && energy.amount.value >= 1);
 </script>
 
 <template>
-	<button @click="combine">
+	<button :disabled="!canAfford" @click="combine">
 		<p>Combine</p>
 		<p class="small reaction">
 			<span>2 H + 1 <SmartphoneChargingIcon /></span>
