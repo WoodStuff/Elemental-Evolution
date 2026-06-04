@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { Upgrade } from "../../composables/useUpgrade";
 
-const { type: upgrade, currency = "H" } = defineProps<{
-	type: Upgrade,
-	currency?: string,
+const { upgrade, currency } = defineProps<{
+	upgrade: Upgrade,
+	currency: string,
 }>()
 
 function buy() {

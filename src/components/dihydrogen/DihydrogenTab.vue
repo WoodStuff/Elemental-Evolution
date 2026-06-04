@@ -15,7 +15,7 @@ const upgrades: Upgrade[] = [upAttractor];
 		<CombineButton />
 
 		<div class="upgrades">
-			<UpgradeButton v-for="up in upgrades" :type="up" currency="H₂" />
+			<UpgradeButton v-for="up in upgrades" :upgrade="up" currency="H₂" />
 		</div>
 	</div>
 </template>

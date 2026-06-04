@@ -20,7 +20,7 @@ const filteredUpgrades = computed(() => upgrades.filter(up => {
 		<GatherButton />
 
 		<div class="upgrades" v-if="filteredUpgrades.length > 0">
-			<UpgradeButton v-for="up in filteredUpgrades" :type="up" />
+			<UpgradeButton v-for="up in filteredUpgrades" :upgrade="up" currency="H" />
 		</div>
 	</div>
 </template>
