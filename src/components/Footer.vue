@@ -4,7 +4,7 @@
 
 <style lang="scss" scoped>
 div#footer {
-	position: absolute;
+	position: fixed;
 	left: 4px;
 	bottom: 4px;
 	font-size: 0.67em;

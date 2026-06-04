@@ -16,15 +16,22 @@ import Game from './components/Game.vue'
 	box-sizing: border-box;
 	transition: 0.06s;
 }
-html, body, #app {
+html, body {
 	width: 100%;
 	height: 100%;
 	margin: 0;
+
+	display: flex;
+	align-items: center;
 }
 #app {
+	width: 100%;
+	height: 75%;
+	margin: 0;
+
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: safe center;
 }
 
 /* Text */
