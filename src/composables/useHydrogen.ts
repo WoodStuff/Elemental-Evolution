@@ -21,6 +21,9 @@ const gatherCooldown = computed(() => _baseCooldown * (Math.pow(0.8, upCooldown.
 const upEfficiency = useUpgrade("Efficiency", amount, n => Math.round(Math.pow(1.25, n) * 10));
 const upCooldown = useUpgrade("Cooldown", amount, n => Math.round(Math.pow(1.6, n) * 50));
 
+// Dihydrogen
+const dihydrogen = ref(0);
+
 // Actions
 function gain(n: number) {
 	amount.value += n;
@@ -59,6 +62,8 @@ export function useHydrogen() {
 
 		upEfficiency,
 		upCooldown,
+
+		dihydrogen,
 
 		gain,
 		take,

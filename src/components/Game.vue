@@ -2,8 +2,11 @@
 import { useHydrogen } from '../composables/useHydrogen';
 import EnergyTab from '../components/energy/EnergyTab.vue';
 import HydrogenTab from './HydrogenTab.vue';
+import Dihydrogen from './dihydrogen/Dihydrogen.vue';
+import { useEnergy } from '../composables/useEnergy.ts';
 
-const { total } = useHydrogen();
+const { total: totalHydrogen } = useHydrogen();
+const { highest: highestEnergy } = useEnergy();
 </script>
 
 <template>
@@ -11,15 +14,18 @@ const { total } = useHydrogen();
 		<div class="row">
 			<HydrogenTab />
 
-			<EnergyTab v-if="total > 1500" />
+			<EnergyTab v-if="totalHydrogen >= 1500" />
 		</div>
+
+		<Dihydrogen v-if="highestEnergy >= 0.5" />
 	</div>
 </template>
 
 <style lang="scss" scoped>
 #game {
 	display: flex;
-	gap: 100px;
+	flex-direction: column;
+	gap: 32px;
 
 	.row {
 		display: flex;
