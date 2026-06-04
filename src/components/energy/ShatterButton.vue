@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { MoveRightIcon, SmartphoneChargingIcon } from '@lucide/vue';
-import { useEnergy } from '../../composables/useEnergy';
-import { useHydrogen } from '../../composables/useHydrogen';
+import { useEnergy } from '../../composables/gamestate/useEnergy';
+import { useHydrogen } from '../../composables/gamestate/useHydrogen.ts';
 import { computed, ref } from 'vue';
 import AmountButtons from '../misc/AmountButtons.vue';
 import { round } from '../../utils.ts';

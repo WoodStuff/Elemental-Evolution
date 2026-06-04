@@ -1,6 +1,6 @@
 import { computed, ref } from "vue";
-import { random } from "../utils";
-import { useUpgrade } from "./useUpgrade";
+import { random } from "../../utils";
+import { useUpgrade } from "../useUpgrade";
 
 // Main
 const amount = ref(0);

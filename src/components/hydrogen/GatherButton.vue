@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useTimer } from '../../composables/useTimer';
-import { useHydrogen } from '../../composables/useHydrogen';
+import { useHydrogen } from '../../composables/gamestate/useHydrogen';
 
 const { gather, gatherCooldown, minGather, maxGather } = useHydrogen();
 

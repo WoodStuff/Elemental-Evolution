@@ -1,5 +1,5 @@
 <script setup>
-import { useEnergy } from '../../composables/useEnergy';
+import { useEnergy } from '../../composables/gamestate/useEnergy';
 import ShatterButton from './ShatterButton.vue';
 
 const { amount } = useEnergy();

@@ -1,5 +1,5 @@
 import { ref } from "vue";
-import { round } from "../utils";
+import { round } from "../../utils";
 
 // Main
 const amount = ref(0);

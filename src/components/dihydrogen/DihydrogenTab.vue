@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useHydrogen } from '../../composables/useHydrogen.ts';
+import { useHydrogen } from '../../composables/gamestate/useHydrogen.ts';
 import { Upgrade } from '../../composables/useUpgrade.ts';
 import UpgradeButton from '../hydrogen/UpgradeButton.vue';
 import CombineButton from './CombineButton.vue';

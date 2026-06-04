@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useHydrogen } from '../composables/useHydrogen';
+import { useHydrogen } from '../composables/gamestate/useHydrogen.ts';
 import EnergyTab from '../components/energy/EnergyTab.vue';
 import HydrogenTab from './hydrogen/HydrogenTab.vue';
 import DihydrogenTab from './dihydrogen/DihydrogenTab.vue';
-import { useEnergy } from '../composables/useEnergy.ts';
+import { useEnergy } from '../composables/gamestate/useEnergy.ts';
 
 const { total: totalHydrogen } = useHydrogen();
 const { highest: highestEnergy } = useEnergy();

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { MoveRightIcon, SmartphoneChargingIcon } from '@lucide/vue';
-import { useHydrogen } from '../../composables/useHydrogen';
-import { useEnergy } from '../../composables/useEnergy';
+import { useHydrogen } from '../../composables/gamestate/useHydrogen';
+import { useEnergy } from '../../composables/gamestate/useEnergy';
 import { computed } from 'vue';
 
 const hydrogen = useHydrogen();
