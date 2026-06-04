@@ -23,7 +23,7 @@ function roundEnergy() {
 	amount.value = round(amount.value, 2);
 }
 
-if (0) {
+if (1) {
 	amount.value = 5;
 	highest.value = 5;
 }

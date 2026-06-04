@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { Upgrade } from "../../composables/useUpgrade";
 
-const { type: upgrade } = defineProps<{
+const { type: upgrade, currency = "H" } = defineProps<{
 	type: Upgrade,
+	currency?: string,
 }>()
 
 function buy() {
@@ -13,7 +14,7 @@ function buy() {
 <template>
 	<button :disabled="!upgrade.canAfford()" @click="buy">
 		<p>{{ upgrade.name }}</p>
-		<p class="small">Cost: {{ upgrade.cost }} H</p>
+		<p class="small">Cost: {{ upgrade.cost }} {{ currency }}</p>
 
 		<div class="amount">{{ upgrade.amount }}</div>
 	</button>
