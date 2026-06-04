@@ -16,3 +16,13 @@ export function round(num: number, decimalPlaces = 0) {
 	const multiplier = 10 ** decimalPlaces;
 	return Math.round(num * multiplier) / multiplier;
 }
+
+/**
+ * Floors a number to a given amount of decimal places.
+ * @param num The number to floor.
+ * @param decimalPlaces The amount of decimal places to floor to.
+ */
+export function floor(num: number, decimalPlaces = 0) {
+	const multiplier = 10 ** decimalPlaces;
+	return Math.floor(num * multiplier) / multiplier;
+}
