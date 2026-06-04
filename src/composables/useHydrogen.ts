@@ -37,17 +37,15 @@ function take(n: number) {
 function gather() {
 	const gatherAmount = random(minGather.value, maxGather.value);
 	gain(gatherAmount);
-	console.log(`total: ${total}`);
-	console.log(`highest: ${highest}`);
 }
 
-/*
-amount.value = 177;
-total.value = 1501;
-highest.value = 300;
-upEfficiency.amount.value = 14;
-upCooldown.amount.value = 4;
-*/
+if (0) {
+	amount.value = 177;
+	total.value = 1500;
+	highest.value = 300;
+	upEfficiency.amount.value = 14;
+	upCooldown.amount.value = 4;
+}
 
 export function useHydrogen() {
 	return {
