@@ -3,7 +3,7 @@ import { MoveRightIcon, SmartphoneChargingIcon } from '@lucide/vue';
 import { useEnergy } from '../../composables/useEnergy';
 import { useHydrogen } from '../../composables/useHydrogen';
 import { computed, ref } from 'vue';
-import AmountButtons from '../AmountButtons.vue';
+import AmountButtons from '../misc/AmountButtons.vue';
 import { round } from '../../utils.ts';
 
 const energy = useEnergy();

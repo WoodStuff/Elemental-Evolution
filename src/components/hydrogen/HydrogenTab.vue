@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useHydrogen } from '../composables/useHydrogen';
-import { Upgrade } from '../composables/useUpgrade';
-import EnergyTab from '../components/energy/EnergyTab.vue';
-import GatherButton from '../components/GatherButton.vue';
-import UpgradeButton from '../components/UpgradeButton.vue';
+import { useHydrogen } from '../../composables/useHydrogen';
+import { Upgrade } from '../../composables/useUpgrade';
+import GatherButton from './GatherButton.vue';
+import UpgradeButton from './UpgradeButton.vue';
 
 const { amount, highest, upEfficiency, upCooldown } = useHydrogen();
 

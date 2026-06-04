@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Upgrade } from "../composables/useUpgrade";
+import { Upgrade } from "../../composables/useUpgrade";
 
 const { type: upgrade } = defineProps<{
 	type: Upgrade,

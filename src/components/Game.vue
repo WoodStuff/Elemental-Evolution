@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useHydrogen } from '../composables/useHydrogen';
 import EnergyTab from '../components/energy/EnergyTab.vue';
-import HydrogenTab from './HydrogenTab.vue';
+import HydrogenTab from './hydrogen/HydrogenTab.vue';
 import Dihydrogen from './dihydrogen/Dihydrogen.vue';
 import { useEnergy } from '../composables/useEnergy.ts';
 
