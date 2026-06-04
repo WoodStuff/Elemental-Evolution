@@ -12,16 +12,17 @@ const hydrogen = useHydrogen();
 const conversionRate = 0.01;
 
 let shatterPercent = ref(0);
-const shatterAmount = computed(() => {
+
+const hydrogenToShatter = computed(() => {
 	if (shatterPercent.value === 0) return 1;
 
 	return round(hydrogen.amount.value * shatterPercent.value);
 });
-const energyToGain = computed(() => round(conversionRate * shatterAmount.value, 2));
+const energyToGain = computed(() => round(conversionRate * hydrogenToShatter.value, 2));
 
 function shatter() {
 	energy.gain(energyToGain.value);
-	hydrogen.take(shatterAmount.value);
+	hydrogen.take(hydrogenToShatter.value);
 }
 
 const canAfford = () => hydrogen.amount.value > 0;
@@ -32,7 +33,7 @@ const canAfford = () => hydrogen.amount.value > 0;
 		<button class="shatter-button" :disabled="!canAfford()" @click="shatter">
 			<p>Shatter</p>
 			<p class="small reaction">
-				<span>{{ shatterAmount }} H</span>
+				<span>{{ hydrogenToShatter }} H</span>
 				<MoveRightIcon />
 				<span>{{ energyToGain }} <SmartphoneChargingIcon /></span>
 			</p>
