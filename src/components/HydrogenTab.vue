@@ -19,7 +19,7 @@ const filteredUpgrades = computed(() => upgrades.filter(up => {
 		<p class="big">You have {{ amount }} hydrogen</p>
 		<GatherButton />
 
-		<div class="upgrades">
+		<div class="upgrades" v-if="filteredUpgrades.length > 0">
 			<UpgradeButton v-for="up in filteredUpgrades" :type="up" />
 		</div>
 	</div>
