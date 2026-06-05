@@ -29,7 +29,6 @@ html, body {
 	height: 75%;
 	margin: 0;
 
-	display: flex;
 	justify-content: center;
 	align-items: safe center;
 }
@@ -37,4 +36,7 @@ html, body {
 /* Text */
 body { font-size: 1.5em; }
 p { margin-block: 0; }
+
+/* Divs */
+div:not(.noflex) { display: flex; }
 </style>

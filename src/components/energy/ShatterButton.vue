@@ -29,7 +29,7 @@ const canAfford = computed(() => hydrogen.amount.value > 0);
 </script>
 
 <template>
-	<div class="shatter-container">
+	<div class="shatter-container noflex">
 		<button class="shatter-button" :disabled="!canAfford" @click="shatter">
 			<p>Shatter</p>
 			<p class="small reaction">

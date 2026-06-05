@@ -14,7 +14,6 @@ const { amount } = useEnergy();
 
 <style lang="scss" scoped>
 #energy-tab {
-	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 16px;

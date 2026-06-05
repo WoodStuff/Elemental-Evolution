@@ -30,19 +30,16 @@ const filteredUpgrades = computed(() => upgrades.filter(up => {
 
 <style lang="scss" scoped>
 .element-tab {
-	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 16px;
 
 	& > div.main {
-		display: flex;
 		flex-direction: column;
 		align-items: center;
 	}
 
 	& > div.upgrades {
-		display: flex;
 		gap: 8px;
 
 		margin-top: 16px;

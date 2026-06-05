@@ -23,12 +23,10 @@ const { highest: highestEnergy } = useEnergy();
 
 <style lang="scss" scoped>
 #game {
-	display: flex;
 	flex-direction: column;
 	gap: 32px;
 
 	.row {
-		display: flex;
 		gap: 100px;
 	}
 }

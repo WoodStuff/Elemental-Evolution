@@ -24,13 +24,11 @@ const upgrades: Upgrade[] = [upAttraction];
 
 <style lang="scss" scoped>
 .dihydrogen {
-	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 16px;
 
 	& > div.upgrades {
-		display: flex;
 		gap: 8px;
 
 		margin-top: 16px;
