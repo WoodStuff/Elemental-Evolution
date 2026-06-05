@@ -17,6 +17,8 @@ const upgrades: Upgrade[] = [upAttraction];
 		<div class="upgrades">
 			<UpgradeButton v-for="up in upgrades" :upgrade="up" currency="H₂" />
 		</div>
+
+		<br>
 	</div>
 </template>
 

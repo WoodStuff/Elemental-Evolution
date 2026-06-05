@@ -1,6 +1,7 @@
 import { computed, ref } from "vue";
 import { random } from "../../utils";
 import { useUpgrade } from "../useUpgrade";
+import { useGenerator } from "../useGenerator";
 
 // Main
 const amount = ref(0);
@@ -39,6 +40,10 @@ function gather() {
 	const gatherAmount = random(minGather.value, maxGather.value);
 	gain(gatherAmount);
 }
+
+// Generators
+const attractionGen = computed(() => 2 * dihydrogen.value * upAttraction.amount.value);
+useGenerator(attractionGen, gain);
 
 if (1) {
 	amount.value = 177;
