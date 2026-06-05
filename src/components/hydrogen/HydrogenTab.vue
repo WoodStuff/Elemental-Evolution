@@ -5,7 +5,7 @@ import { Upgrade } from '../../composables/useUpgrade';
 import GatherButton from './GatherButton.vue';
 import UpgradeButton from './UpgradeButton.vue';
 
-const { amount, highest, upEfficiency, upCooldown } = useHydrogen();
+const { amount, highest, perSecond, upEfficiency, upCooldown } = useHydrogen();
 
 const upgrades: Upgrade[] = [upEfficiency, upCooldown];
 const filteredUpgrades = computed(() => upgrades.filter(up => {
@@ -15,8 +15,11 @@ const filteredUpgrades = computed(() => upgrades.filter(up => {
 </script>
 
 <template>
-	<div class="element-tab">	
-		<p class="big">You have {{ amount }} hydrogen</p>
+	<div class="element-tab">
+		<div class="main">
+			<p class="big">You have {{ amount }} hydrogen</p>
+			<p v-if="perSecond != 0">{{ perSecond }} per second</p>
+		</div>	
 		<GatherButton />
 
 		<div class="upgrades" v-if="filteredUpgrades.length > 0">
@@ -31,6 +34,12 @@ const filteredUpgrades = computed(() => upgrades.filter(up => {
 	flex-direction: column;
 	align-items: center;
 	gap: 16px;
+
+	& > div.main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 
 	& > div.upgrades {
 		display: flex;

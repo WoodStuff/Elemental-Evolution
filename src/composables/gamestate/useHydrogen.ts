@@ -43,7 +43,9 @@ function gather() {
 
 // Generators
 const attractionGen = computed(() => 2 * dihydrogen.value * upAttraction.amount.value);
-useGenerator(attractionGen, gain);
+
+const perSecond = computed(() => attractionGen.value);
+useGenerator(perSecond, gain);
 
 if (1) {
 	amount.value = 177;
@@ -58,6 +60,7 @@ export function useHydrogen() {
 		amount,
 		total,
 		highest,
+		perSecond,
 
 		baseGather,
 		minGather,
