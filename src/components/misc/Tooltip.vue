@@ -17,7 +17,7 @@
 	z-index: 1;
 
 	width: max-content;
-	max-width: 250px;
+	max-width: 300px;
 
 	opacity: 0;
 	transition: opacity 0.25s;

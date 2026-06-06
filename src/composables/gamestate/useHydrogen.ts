@@ -18,13 +18,26 @@ const maxGather = computed(() => Math.round(baseGather.value * 1.25));
 const _baseCooldown = 2000;
 const gatherCooldown = computed(() => _baseCooldown * (Math.pow(0.8, upCooldown.amount.value)));
 
-// Upgrades
-const upEfficiency = useUpgrade("Efficiency", amount, n => Math.round(Math.pow(1.25, n) * 10));
-const upCooldown = useUpgrade("Cooldown", amount, n => Math.round(Math.pow(1.6, n) * 50));
-
 // Dihydrogen
 const dihydrogen = ref(0);
-const upAttraction = useUpgrade("Attraction", dihydrogen, n => Math.round(Math.pow(2, n) * 5));
+
+// Upgrades
+const upEfficiency = useUpgrade(
+	"Efficiency",
+	"Increases the amount of hydrogen you find from gathering.",
+	amount, n => Math.round(Math.pow(1.25, n) * 10),
+);
+const upCooldown = useUpgrade(
+	"Cooldown",
+	"Makes gathering quicker, while finding the same amount of hydrogen.",
+	amount, n => Math.round(Math.pow(1.6, n) * 50),
+);
+
+const upAttraction = useUpgrade(
+	"Attraction",
+	"Make your H₂ more massive, causing each molecule to attract 2 hydrogen per second per level.",
+	dihydrogen, n => Math.round(Math.pow(2, n) * 5),
+);
 
 // Actions
 function gain(n: number) {
@@ -67,10 +80,10 @@ export function useHydrogen() {
 		maxGather,
 		gatherCooldown,
 
+		dihydrogen,
+
 		upEfficiency,
 		upCooldown,
-
-		dihydrogen,
 		upAttraction,
 
 		gain,

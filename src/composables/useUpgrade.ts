@@ -1,6 +1,11 @@
 import { computed, Ref, ref } from "vue";
 
-export function useUpgrade(name: string, currency: Ref<number>, costFormula: (n: number) => number) {
+export function useUpgrade(
+	name: string,
+	description: string,
+	currency: Ref<number>,
+	costFormula: (n: number) => number,
+) {
 	const amount = ref(0);
 	const cost = computed(() => costFormula(amount.value));
 
@@ -17,6 +22,7 @@ export function useUpgrade(name: string, currency: Ref<number>, costFormula: (n:
 		amount,
 		cost,
 		name,
+		description,
 
 		buy,
 		canAfford,

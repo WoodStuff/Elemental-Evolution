@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Upgrade } from "../../composables/useUpgrade";
+import Tooltip from "../misc/Tooltip.vue"
 
 const { upgrade, currency } = defineProps<{
 	upgrade: Upgrade,
@@ -17,6 +18,11 @@ function buy() {
 		<p class="small">Cost: {{ upgrade.cost }} {{ currency }}</p>
 
 		<div class="amount">{{ upgrade.amount }}</div>
+
+		<Tooltip>
+			<h1>{{ upgrade.name }}</h1>
+			<p>{{ upgrade.description }}</p>
+		</Tooltip>
 	</button>
 </template>
 
