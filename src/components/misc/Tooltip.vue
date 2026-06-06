@@ -3,7 +3,7 @@
 </script>
 
 <template>
-	<div class="tooltip">
+	<div class="tooltip noflex">
 		<slot></slot>
 	</div>
 </template>
@@ -16,15 +16,16 @@
 	transform: translateX(-50%);
 	z-index: 1;
 
+	width: max-content;
+	max-width: 250px;
+
 	opacity: 0;
-	transition: 0.5s;
+	transition: opacity 0.25s;
 
 	background-color: #111;
-	color: #fff;	
+	color: #fff;
 	padding: 8px;
 	border-radius: 8px;
-
-	font-size: 16px;
 
 	pointer-events: none;
 
@@ -39,6 +40,12 @@
 		border: solid 4px transparent;
 		border-top-color: #111;
 	}
+
+	& > * { margin: 0; }
+
+	// tooltip elements
+	& > h1 { font-size: 16px; font-weight: 600; }
+	& > p { font-size: 14px; }
 }
 
 *:hover > .tooltip {
