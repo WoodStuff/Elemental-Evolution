@@ -42,5 +42,10 @@ button {
 		top: -20px;
 		transform: translateX(-50%);
 	}
+
+	// raise tooltip to account for amount indicator
+	& > .tooltip {
+		translate: 0 -20px;
+	}
 }
 </style>
